@@ -1,14 +1,14 @@
 # Morphing a Genome-Scale Metabolic Model from Organism 'A' to Organism 'B'
 
-Takes a Model/Genome for a 'source' organism and 'morphs' it to the 'target' organism. It keeps reactions from the 'source' model for which there is at least one matching gene feature, and attempts to remove those in the source model that do not have BLAST hits in the second genome. It also adds reactions annotated within the target genome that are unique to the target organism. The model is never broken in the process, such that the Biomass reaction and any other specified reaction [insert how you flag this option] must always carry flux. If a reaction can't be removed without breaking the model, it is removed and gap-filled using Prob-Anno gapfilling [other options?]
+Takes a Model/Genome for a 'source' organism and 'morphs' it to the 'target' organism. It keeps reactions from the 'source' model for which there is at least one matching gene feature, and attempts to remove those in the source model that do not have BLAST hits in the second genome. It also adds reactions annotated within the target genome that are unique to the target organism. The model is never broken in the process, such that the Biomass reaction and any other specified reaction must always carry flux. If a reaction can't be removed without breaking the model, it is removed and gap-filled using Prob-Anno gapfilling.
 
 ## Requirements
 
-- This tool runs within a Docker container, so it a working installation of Docker is a pre-requisite. Information on how to install Docker for your system can be found at [docker.com](https://www.docker.com/) and elsewhere online.
+- This tool runs within a Docker container, so a working installation of Docker is a pre-requisite. Information on how to install Docker for your system can be found at [docker.com](https://www.docker.com/) and elsewhere online.
 - This tools uses models in **KBase** workspaces. To use, you must upload your model into a KBase workspace/narrative, which can be done through KBase's narrative interface at [kbase.us](https://kbase.us)
 
 ## Installation
-1. Clone this repository: `git clone https://github.com/kingb12/model-morphing.git`
+1. Clone this repository: `git clone https://github.com/PriceLab/model-morphing.git`
 2. Navigate to `model-morphing/`
 3. Make sure the docker daemon is running (i.e. you can run `docker ...` commands)
 4. Build the image: `docker build -t kingb12/mm .`
